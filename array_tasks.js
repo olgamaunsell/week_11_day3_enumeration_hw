@@ -47,20 +47,42 @@ const arrayTasks = {
 
 	sumOfAllEvenNumbersSquared: function (arr) {
 
-  const evenNumbers = arr.filter(function(number){
-    return number % 2 === 0;
-  });
+	  const evenNumbers = arr.filter(function(number){
+	    return number % 2 === 0;
+	  });
 
-  const squaredNumbers = arrayTasks.square(evenNumbers);
-  const sum = arrayTasks.sum(squaredNumbers);
-  return sum;
-	}
+	  const squaredNumbers = arrayTasks.square(evenNumbers);
+	  const sum = arrayTasks.sum(squaredNumbers);
+	  return sum;
+	},
 
 	// ----------- EXTENSION ------------
 
-	// findDuplicates: function (arr) {
+	findDuplicates: function (arr) {
 
-	// },
+		let countHash = {};
+
+		arr.forEach(function(number){
+			if (number in countHash){
+				countHash[number] +=1;
+			}
+			else{
+				countHash[number] = 1;
+			}
+		});
+
+		const keys = Object.keys(countHash);
+
+		let duplicatesArray = [];
+		for (key of keys) {
+			if (countHash[key] > 1){
+				const number = parseInt(key);
+				duplicatesArray.push(number);
+			}
+		}
+
+		return duplicatesArray;
+	},
 
 }
 
