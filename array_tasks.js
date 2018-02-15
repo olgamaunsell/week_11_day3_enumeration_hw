@@ -51,8 +51,8 @@ const arrayTasks = {
 	    return number % 2 === 0;
 	  });
 
-	  const squaredNumbers = arrayTasks.square(evenNumbers);
-	  const sum = arrayTasks.sum(squaredNumbers);
+	  const squaredNumbers = this.square(evenNumbers);
+	  const sum = this.sum(squaredNumbers);
 	  return sum;
 	},
 
